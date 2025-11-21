@@ -13,7 +13,7 @@ tower-http = { version = "0.5", features = ["cors", "trace", "fs"] }
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 anyhow = "1.0"
-t3router = { git = "https://github.com/vibheksoni/t3router" }
+t3router = { path = "t3router" }
 dotenv = "0.15"
 reqwest = { version = "0.11", features = ["json"] }
 futures = "0.3"

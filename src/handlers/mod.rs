@@ -9,6 +9,7 @@ use crate::t3::T3Client;
 use rusqlite::Connection;
 use std::sync::Arc;
 use tokio::sync::Mutex;
+use t3router::t3::models::ModelInfo as T3ModelInfo;
 
 /// Contains the shared state for the application.
 ///
@@ -23,6 +24,8 @@ pub struct AppState {
     pub config: Config,
     /// A thread-safe, shared instance of the database connection.
     pub db_conn: Arc<std::sync::Mutex<Connection>>,
+    /// Cache for the list of available models.
+    pub models_cache: Arc<Mutex<Option<Vec<T3ModelInfo>>>>,
 }
 
 impl AppState {
@@ -43,6 +46,7 @@ impl AppState {
             t3_client: Arc::new(Mutex::new(t3_client)),
             config,
             db_conn,
+            models_cache: Arc::new(Mutex::new(None)),
         })
     }
 }

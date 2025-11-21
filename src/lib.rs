@@ -1,3 +1,5 @@
+pub mod t3_scraper;
+
 use axum::{
     routing::{delete, get, post},
     Router,
