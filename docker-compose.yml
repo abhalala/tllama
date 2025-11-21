@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  tllama:
+    build: .
+    ports:
+      - "11434:11434"
+    environment:
+      - T3_COOKIES=${T3_COOKIES}
+      - T3_CONVEX_SESSION_ID=${T3_CONVEX_SESSION_ID}
+      - PORT=11434
+    restart: unless-stopped
